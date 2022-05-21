@@ -1,0 +1,327 @@
+// reset
+@import "reset";
+
+//fonts
+
+@import "fonts";
+// _______________________________________
+
+//colors
+
+$orange: #ff9668;
+$gray: #ececec;
+$dark-gray: #3b3c49;
+$blue: #82b6ff;
+$dark-blue: rgb(78, 78, 137);
+$green: #84ff9f;
+$dark-green: rgb(105, 142, 97);
+$red: #fe7dab;
+$dark-red: rgb(136, 72, 100);
+
+
+
+// _______________________________________
+
+//animations
+
+@keyframes shake{
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-3px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(3px, 0, 0);
+  }
+}
+
+// @keyframes appearance{
+//     0% {
+//         transform: translate(100%, 0);
+//     }
+//     100% {
+//     }
+// }
+
+
+// _______________________________________
+
+body{
+    position: relative;
+    height: 100vh;
+    overflow-y: hidden;
+    @include pacifico-regular;
+    a {
+        color: $dark-gray;
+    }
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;
+    -khtml-user-select: none;   
+    -moz-user-select: none;   
+    -ms-user-select: none;       
+    user-select: none; 
+    overflow-x: hidden;
+}
+
+
+// header
+.header{
+    background-color: $orange;
+    color: $dark-gray;
+    padding: 0 6em;
+    .container{
+        height: 16vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;   
+    }   
+}
+
+
+.header__logo{
+    
+    @include ubuntu-bold;
+    font-size: 5.1rem;
+    text-transform: uppercase;
+    background-color: $gray;
+    padding: 0.2em 0.7em;
+
+    text-align: center;
+    border-radius: 20px;
+    p{
+        font-size: 1.7rem;
+        
+    }
+}
+
+.header__operations{
+    display: flex;
+    font-size: 5.1rem;
+    color: $gray;
+    li {
+        background-color: $gray;
+        border-radius: 50%;
+        width: 1.5em;
+        height: 1.5em;
+        padding-top: 0.1em;
+        text-align: center;
+        margin-right: 0.2em;
+
+        &:last-child{
+            margin-right: 0;
+        }
+        &:hover, &:active{
+            background-color: $dark-gray;
+        }
+        &:hover a, &:active a{
+            color: $gray;
+        }
+
+    }
+}
+
+.burger-menu{
+    position: relative;
+    display: none;
+    cursor: pointer;
+    span{
+        width: 45px;
+        height: 6px;
+        margin-bottom: 1.2em;
+        background-color: $gray;
+        display: block;
+        border-radius: 5px;
+        transition: all 0.4s ease-out;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+.close{
+    span{
+        position: absolute;
+        right: 0;
+        top: -.3em;
+        // top: 50%;
+        // width: 57px;
+        &:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        &:nth-child(2){
+            display: none;
+        }
+        &:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+.burger-navigation{
+    font-size: 1.5rem;
+    z-index: 999;
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    visibility: hidden; 
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    @include ubuntu-bold;
+    li{
+        padding: 5vh;
+        border-bottom: 2px $gray solid;
+    }
+    a{
+        color: gray;
+    }
+    a:active, a:hover{
+        color: $gray;
+    }
+}
+
+.appearance{
+    width: 100%;
+    font-size: 3rem;
+    visibility: visible;
+    opacity: 1;
+    background-color: $dark-gray;
+}
+
+// _________________________________
+
+// content
+.content{
+    background-color: $gray;
+}
+
+.content__equation{
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $gray;
+    color: $dark-gray;
+    font-size: 9.5rem;
+    text-align: center;
+    // padding: 1.5em 0;
+    
+}
+
+.content__answers{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 5.5rem;
+    color: $dark-gray; 
+
+    
+
+    li {
+        // border: 2px rgb(255, 24, 24) solid;
+        height: 44vh;
+        border-right: none;
+        flex: 1 0 33.33%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover{
+            
+            font-size: 5.6rem;
+        }
+    }
+}
+
+.blue {
+    background-color: $blue;
+    &:hover{
+        color: $dark-blue
+    }
+}
+.green {
+    background-color: $green;
+    &:hover {
+        color: $dark-green;
+    }
+}
+.red{
+    background-color: $red;
+    &:hover {
+        color: $dark-red;
+    }
+}
+.wrong-answer{
+    animation: shake 0.82s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+
+// _________________________________
+
+// break points
+
+@media(max-width: 768px){
+
+    .header{
+        padding: 0 4em;
+    }
+    :root {
+        font-size: 7px;
+    }
+}
+
+@media(max-width: 568px) {
+    .header__operations{
+        display: none;
+    }
+    .header__logo{
+        font-size: 4.5rem;
+    }
+    .header{
+        padding: 0 3em;
+    }
+    .burger-menu{
+        display: block;
+    }
+}
+@media(max-width:320px){
+    .content__equation{
+        font-size: 8rem;
+    }
+}
+@media(max-height: 500px){
+    .header__operations{
+        font-size: 4.5rem;
+    }
+    .header__logo{
+        font-size: 4.3rem;
+    }
+}
+
+@media(max-height: 450px) {
+    .header__operations {
+        font-size: 4rem;
+    }
+
+    .header__logo {
+        font-size: 3.8rem;
+    }
+}
+
+@media(max-height: 320px) {
+    .header__operations {
+        font-size: 3.5rem;
+    }
+
+    .header__logo {
+        font-size: 3.1rem;
+    }
+    .content__equation{
+        font-size: 8.2rem;
+    }
+}
+
